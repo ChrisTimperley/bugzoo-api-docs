@@ -8,12 +8,18 @@ info:
     name: Christopher Timperley
     url: https://github.com/ChrisTimperley/bugzoo-api-docs
 
+tags:
+  - name: container
+    description: All operations related to containers
+
 paths:
   /containers:
     get:
       summary: List of running containers
       description: Produces a list of the names of all of the containers that
         are currently running on this server.
+      tags:
+        - container
       produces:
         - application/json
       responses:
