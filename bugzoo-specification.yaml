@@ -22,9 +22,10 @@ definitions:
   Bug:
     type: object
     properties:
-      uid:
+      id:
         type: string
         description: A unique identifier for this bug.
+        example: 'manybugs:python:69223-69224'
 
   Container:
     type: object
