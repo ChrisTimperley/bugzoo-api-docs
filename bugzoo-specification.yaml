@@ -24,6 +24,7 @@ definitions:
     properties:
       id:
         type: string
+        required: true
         description: A unique identifier for this bug.
         example: 'manybugs:python:69223-69224'
 
@@ -32,6 +33,7 @@ definitions:
     properties:
       name:
         type: string
+        required: true
         description: A unique identifier for the container. If an ID was not
           provided by the user upon the creation of the container, an ID will
           automatically be generated instead.
