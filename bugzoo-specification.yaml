@@ -176,10 +176,18 @@ paths:
         - container
       produces:
         - application/json
+      parameters:
+        - in: path
+          name: container-id
+          type: string
+          description: The unique identifier of the container.
+          required: true
       responses:
         200:
-          description: OK
-          schema:
-            type: object
+          description: Compilation success.
+        201:
+          description: Compilation failure.
+        202:
+          description: Compilation timeout.
         404:
           description: Container not found.
