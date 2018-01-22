@@ -1,0 +1,9 @@
+swagger: '2.0'
+info:
+  description: |
+    Official documentation for BugZoo's RESTful API.
+  version: '2.0.0'
+  title: BugZoo - API Specification
+  contact:
+    name: Christopher Timperley
+    url: https://github.com/ChrisTimperley/bugzoo-api-docs
