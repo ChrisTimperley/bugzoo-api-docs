@@ -40,7 +40,7 @@ paths:
   /bugs:
     get:
       summary: List of registered bugs.
-      description: Produces a list of all the bugs registered with this server,
+      description: Produces a list of all the bugs registered with this server
         given by their unique identifiers.
       tags:
         - bug
@@ -56,7 +56,7 @@ paths:
               description: The unique identifier of the bug.
               example: 'manybugs:python:69223-69224'
 
-  /bugs/${name}:
+  /bugs/{id}:
     get:
       summary: Bug information.
       description: Produces a detailed description of a given bug.
@@ -64,6 +64,13 @@ paths:
         - bug
       produces:
         - application/json
+      parameters:
+        - in: path
+          name: id
+          type: string
+          description: The unique identifier of the bug.
+          required: true
+          example: 'manybugs:python:69233-69224'
       responses:
         200:
           description: OK
