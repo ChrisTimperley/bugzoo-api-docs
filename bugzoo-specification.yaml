@@ -137,6 +137,25 @@ paths:
         404:
           description: Container not found.
 
+    delete:
+      summary: Destroy container.
+      description: Destroys a given container.
+      tags:
+        - container
+      produces:
+        - application/json
+      parameters:
+      - in: path
+        name: id
+        type: string
+        description: The unique identifier of the container.
+        required: true
+      responses:
+        204:
+          description: OK
+        404:
+          description: Container does not exist or was already destroyed.
+
   /containers/${container-id}/test/${test-id}:
     post:
       summary: Executes a test inside a container.
