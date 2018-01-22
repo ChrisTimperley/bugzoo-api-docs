@@ -56,19 +56,19 @@ paths:
               description: The unique identifier of the bug.
               example: 'manybugs:python:69223-69224'
 
-    /bugs/${name}:
-      get:
-        summary: Bug information.
-        description: Produces a detailed description of a given bug.
-        tags:
-          - bug
-        produces:
-          - application/json
-        responses:
-          200:
-            description: OK
-            schema:
-              $ref: '#/definitions/Bug'
+  /bugs/${name}:
+    get:
+      summary: Bug information.
+      description: Produces a detailed description of a given bug.
+      tags:
+        - bug
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Bug'
 
   /containers:
     get:
