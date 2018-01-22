@@ -36,9 +36,10 @@ definitions:
     properties:
       id:
         type: string
-        description: A unique identifier for the container. If an ID was not
-          provided by the user upon the creation of the container, an ID will
-          automatically be generated instead.
+        description: >-
+          A unique identifier for the container. If an ID was not provided by
+          the user upon the creation of the container, an ID will automatically
+          be generated instead.
 
 
 paths:
@@ -51,8 +52,9 @@ paths:
   /bugs:
     get:
       summary: List of registered bugs.
-      description: Produces a list of all the bugs registered with this server
-        given by their unique identifiers.
+      description: >-
+        Produces a list of all the bugs registered with this server given by
+        their unique identifiers.
       tags:
         - bug
       produces:
@@ -96,8 +98,9 @@ paths:
   /containers:
     get:
       summary: List of running containers.
-      description: Produces a list of the names of all of the containers that
-        are currently running on this server.
+      description: >-
+        Produces a list of the names of all of the containers that are
+        currently running on this server.
       tags:
         - container
       produces:
@@ -137,8 +140,9 @@ paths:
   /containers/${container-id}/test/${test-id}:
     get:
       summary: Executes a test inside a container.
-      description: Executes a test case belonging to the program within a given
-        container, and returns the outcome of the execution.
+      description: >-
+        Executes a test case belonging to the program within a given container,
+        and returns the outcome of the execution.
       tags:
         - container
       produces:
@@ -165,8 +169,9 @@ paths:
   /containers/${container-id}/compile:
     get:
       summary: Compiles program inside container.
-      description: Attempts to compile the program inside a given container,
-        and returns a description of the outcome of the compilation process.
+      description: >-
+        Attempts to compile the program inside a given container, and returns
+        a description of the outcome of the compilation process.
       tags:
         - container
       produces:
