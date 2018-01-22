@@ -21,19 +21,21 @@ tags:
 definitions:
   Bug:
     type: object
+    required:
+      - id
     properties:
       id:
         type: string
-        required: true
         description: A unique identifier for this bug.
         example: 'manybugs:python:69223-69224'
 
   Container:
     type: object
+    required:
+      - id
     properties:
-      name:
+      id:
         type: string
-        required: true
         description: A unique identifier for the container. If an ID was not
           provided by the user upon the creation of the container, an ID will
           automatically be generated instead.
@@ -119,5 +121,33 @@ paths:
             $ref: '#/definitions/Container'
         404:
           description: Container not found.
+
+  /containers/${container-id}/test/${test-id}:
+    get:
+      summary: Executes a test inside a container.
+      description: Executes a test case belonging to the program within a given
+        container, and returns the outcome of the execution.
+      tags:
+        - container
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: container-id
+          type: string
+          description: The unique identifier of the container.
+          required: true
+        - in: path
+          name: test-id
+          type: string
+          description: The unique identifier of the test case.
+          required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        404:
+          description: Container or test case not found.
 
 
