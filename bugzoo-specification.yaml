@@ -7,13 +7,16 @@ info:
   contact:
     name: Christopher Timperley
     url: https://github.com/ChrisTimperley/bugzoo-api-docs
-
 host: localhost
 basePath: /bugzoo
+
 
 tags:
   - name: container
     description: All operations related to containers
+  - name: bug
+    description: All operations related to bugs
+
 
 definitions:
   Container:
@@ -25,7 +28,27 @@ definitions:
           provided by the user upon the creation of the container, an ID will
           automatically be generated instead.
 
+
 paths:
+  /bugs:
+    get:
+      summary: List of registered bugs.
+      description: Produces a list of all the bugs registered with this server,
+        given by their unique identifiers.
+      tags:
+        - bug
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+              description: The unique identifier of the bug.
+              example: 'manybugs:python:69223-69224'
+
   /containers:
     get:
       summary: List of running containers
@@ -58,3 +81,5 @@ paths:
             $ref: '#/definitions/Container'
         404:
           description: Container not found
+
+
