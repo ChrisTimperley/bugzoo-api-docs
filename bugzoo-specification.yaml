@@ -2,15 +2,28 @@ swagger: '2.0'
 info:
   description: |
     Official documentation for BugZoo's RESTful API.
-  version: '2.0.0'
+  version: '1.0'
   title: BugZoo - API Specification
   contact:
     name: Christopher Timperley
     url: https://github.com/ChrisTimperley/bugzoo-api-docs
 
+host: localhost
+basePath: /bugzoo
+
 tags:
   - name: container
     description: All operations related to containers
+
+definitions:
+  Container:
+    type: object
+    properties:
+      name:
+        type: string
+        description: A unique identifier for the container. If an ID was not
+          provided by the user upon the creation of the container, an ID will
+          automatically be generated instead.
 
 paths:
   /containers:
@@ -25,3 +38,7 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Container'
