@@ -42,3 +42,19 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Container'
+
+  /containers/${name}:
+    get:
+      summary: Container information.
+      description: Produces a detailed description of a given container.
+      tags:
+        - container
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Container'
+        404:
+          description: Container not found
