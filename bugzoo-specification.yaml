@@ -162,4 +162,19 @@ paths:
         404:
           description: Container or test case not found.
 
-
+  /containers/${container-id}/compile:
+    get:
+      summary: Compiles program inside container.
+      description: Attempts to compile the program inside a given container,
+        and returns a description of the outcome of the compilation process.
+      tags:
+        - container
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        404:
+          description: Container not found.
