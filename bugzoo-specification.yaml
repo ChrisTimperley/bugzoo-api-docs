@@ -56,7 +56,7 @@ paths:
               description: The unique identifier of the bug.
               example: 'manybugs:python:69223-69224'
 
-  /bugs/{id}:
+  /bugs/${id}:
     get:
       summary: Bug information.
       description: Produces a detailed description of a given bug.
@@ -70,7 +70,6 @@ paths:
           type: string
           description: The unique identifier of the bug.
           required: true
-          example: 'manybugs:python:69233-69224'
       responses:
         200:
           description: OK
