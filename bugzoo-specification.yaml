@@ -19,6 +19,13 @@ tags:
 
 
 definitions:
+  Bug:
+    type: object
+    properties:
+      uid:
+        type: string
+        description: A unique identifier for this bug.
+
   Container:
     type: object
     properties:
@@ -49,9 +56,23 @@ paths:
               description: The unique identifier of the bug.
               example: 'manybugs:python:69223-69224'
 
+    /bugs/${name}:
+      get:
+        summary: Bug information.
+        description: Produces a detailed description of a given bug.
+        tags:
+          - bug
+        produces:
+          - application/json
+        responses:
+          200:
+            description: OK
+            schema:
+              $ref: '#/definitions/Bug'
+
   /containers:
     get:
-      summary: List of running containers
+      summary: List of running containers.
       description: Produces a list of the names of all of the containers that
         are currently running on this server.
       tags:
@@ -65,6 +86,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Container'
+        404:
+          description: Bug not found.
 
   /containers/${name}:
     get:
@@ -80,6 +103,6 @@ paths:
           schema:
             $ref: '#/definitions/Container'
         404:
-          description: Container not found
+          description: Container not found.
 
 
