@@ -138,7 +138,7 @@ paths:
           description: Container not found.
 
   /containers/${container-id}/test/${test-id}:
-    get:
+    post:
       summary: Executes a test inside a container.
       description: >-
         Executes a test case belonging to the program within a given container,
@@ -167,7 +167,7 @@ paths:
           description: Container or test case not found.
 
   /containers/${container-id}/compile:
-    get:
+    post:
       summary: Compiles program inside container.
       description: >-
         Attempts to compile the program inside a given container, and returns
